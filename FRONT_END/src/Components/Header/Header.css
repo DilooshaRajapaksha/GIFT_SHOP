@@ -1,0 +1,49 @@
+.topbar{
+  position:sticky; top:0; z-index:50;
+  height:64px; background:#E3A7A0;
+  box-shadow:0 0 1px #171a1f12, 0 0 2px #171a1f1F;
+}
+.topbar .bar{
+  max-width: 100%; margin:0 auto; height:100%;
+  position: relative;
+  display:flex; align-items:center; justify-content:flex-start;
+  padding:0 16px;
+}
+/* reuse the same .nav, .search, .icons rules from above */
+
+
+
+
+/* nav links left */
+.nav{ display:flex; gap:24px; margin-right: auto; }
+.nav a{
+  text-decoration:none;
+  color:#2a2a2a;
+  font-weight:500;
+  opacity:.9;
+}
+.nav a.active{ font-weight:700; }
+
+/* search */
+.search{ position:relative; }
+.search input{
+  height:36px; width:260px;
+  border:1px solid rgba(0,0,0,.2);
+  background:#E3A7A0;
+  border-radius:8px;
+  padding:0 12px 0 34px; /* room for icon left */
+  outline:none;
+}
+.search svg{
+  position:absolute; left:10px; top:50%;
+  transform:translateY(-50%);
+  width:16px; height:16px; opacity:.7;
+  fill:#222;
+}
+
+/* icons right */
+.icons{ display:flex; gap:12px; }
+.icon-btn{
+  background:none; border:0; padding:6px; cursor:pointer;
+}
+.icon-btn svg{ width:18px; height:18px; fill:#2a2a2a; opacity:.85; }

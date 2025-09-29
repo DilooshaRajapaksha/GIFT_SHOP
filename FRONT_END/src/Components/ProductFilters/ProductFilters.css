@@ -1,0 +1,32 @@
+/* compact, neat sidebar */
+.filters.neat { display: flex; flex-direction: column; gap: 14px; }
+.card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 14px;
+  padding: 12px;
+}
+.section-title {
+  display: flex; align-items: center; justify-content: space-between;
+  font-weight: 600; margin-bottom: 8px; font-size: 14px;
+}
+.link-clear {
+  background: transparent; border: 0; cursor: pointer;
+  font-size: 12px; text-decoration: underline; opacity: .8;
+}
+
+/* vertical checkbox list */
+.checkbox-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.checkbox-item { display: flex; align-items: center; gap: 10px; }
+.checkbox-item input[type="checkbox"] { width: 16px; height: 16px; }
+
+/* inputs */
+.fx label { font-size: 12px; opacity: .75; margin-bottom: 4px; display: block; }
+.fx input, .fx select {
+  width: 100%; height: 36px; padding: 0 10px; border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.15); background: #fff; outline: none;
+}
+
+/* price */
+.price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.price-field { display: flex; flex-direction: column; gap: 4px; }
