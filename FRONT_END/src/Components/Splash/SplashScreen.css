@@ -1,0 +1,68 @@
+.splash-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent overlay */
+}
+
+.splash-full {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);  /* Readable on bg image */
+}
+
+.splash-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.splash-content {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.splash-title {
+  font-size: 2rem;
+  margin: 0;
+  padding: 10px 20px;
+  background: rgba(255, 107, 53, 0.8);  /* Orange pill bg to match Cart theme */
+  border-radius: 25px;
+  display: inline-block;
+}
+
+.splash-subtitle {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.start-btn {
+  background: #ff6b35;  /* Orange from your Cart.css */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.start-btn:hover {
+  background: #e55a2b;  /* Darker on hover */
+}
