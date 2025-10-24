@@ -1,0 +1,10 @@
+
+
+html, body, #root { height: 100%; }
+body { margin: 0; }
+
+/* Make the app fill the viewport in a column */
+#root { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* The routes area should grow, pushing the footer to the bottom */
+.App {font-family:poppins ; flex: 1; display: block; }  
