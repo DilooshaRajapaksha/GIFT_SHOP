@@ -15,7 +15,7 @@ public class Cart {
     private Integer cartId;
 
     @Column(name= "user_id" , nullable = false)
-    private Integer userId;
+    private Long userId;
 
     @Column(name= "created_at", insertable = false, updatable = false)
     private Timestamp createdAt;

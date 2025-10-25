@@ -29,11 +29,11 @@ public class CartService {
     private final CartItemRepo cartItemRepo;
     private final ProductRepo productRepo;
 
-    private Integer currentUserId() {return 1;}
+    private Long currentUserId() {return 1L;}
 
     @Transactional
     public CartResponse createCart() {
-        Integer userId = currentUserId();
+        Long userId = currentUserId();
         cartRepo.findByUserId(userId).ifPresent(c -> {
             throw new ResponseStatusException(CONFLICT, "Cart already exists for user");
         });
@@ -127,7 +127,7 @@ public class CartService {
 
 
          //Helpers
-         private Cart requireCartForUser(Integer userId) {
+         private Cart requireCartForUser(Long userId) {
             return cartRepo.findByUserId(userId)
                     .orElseThrow( () -> new ResponseStatusException(NOT_FOUND, "Cart not found for user"));
          }

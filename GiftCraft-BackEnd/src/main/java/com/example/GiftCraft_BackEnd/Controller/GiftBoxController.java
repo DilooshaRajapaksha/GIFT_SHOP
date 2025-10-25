@@ -28,17 +28,17 @@ public class GiftBoxController {
     }
 
     @GetMapping("/{id}")
-    public GiftBoxResponse get(@PathVariable Integer id) {
+    public GiftBoxResponse get(@PathVariable Long id) {
         return service.get(id);
     }
 
     @PutMapping("/update/{id}")
-    public GiftBoxResponse update(@PathVariable Integer id, @Valid @RequestBody GiftBoxUpdateRequest body) {
+    public GiftBoxResponse update(@PathVariable Long id, @Valid @RequestBody GiftBoxUpdateRequest body) {
         return service.update(id, body);
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Integer id) {
+    public boolean delete(@PathVariable Long id) {
         return service.delete(id);
     }
 

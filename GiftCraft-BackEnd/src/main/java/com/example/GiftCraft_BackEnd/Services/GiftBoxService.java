@@ -27,11 +27,11 @@ public class GiftBoxService {
     private final GiftBoxItemRepo itemRepo;
     private final ModelMapper modelMapper;
 
-    private Integer currentUserId() { return 1; }   // replace with auth later
+    private Long currentUserId() { return 1L; }   // replace with auth later
 
     @Transactional
     public GiftBoxResponse create(GiftBoxCreateRequest req) {
-        Integer userId = currentUserId();
+        Long userId = currentUserId();
 
         Product box = new Product();
         box.setName(req.getName());
@@ -63,7 +63,7 @@ public class GiftBoxService {
     }
 
     public List<GiftBoxResponse> list(int page, int size) {
-        Integer userId = currentUserId();
+        Long userId = currentUserId();
         Page<Product> pg = productRepo.findGiftboxesByOwner(userId, PageRequest.of(page, size));
         List<GiftBoxResponse> out = new ArrayList<>();
         for (Product p : pg.getContent()) {
@@ -72,7 +72,7 @@ public class GiftBoxService {
         return out;
     }
 
-    public GiftBoxResponse get(Integer id) {
+    public GiftBoxResponse get(Long id) {
         Product box = requireOwner(id);
         var lines = itemRepo.findByGiftbox_Id(id);
         BigDecimal total = itemRepo.sumTotal(id);
@@ -80,7 +80,7 @@ public class GiftBoxService {
     }
 
     @Transactional
-    public GiftBoxResponse update(Integer id, GiftBoxUpdateRequest req) {
+    public GiftBoxResponse update(Long id, GiftBoxUpdateRequest req) {
         Product box = requireOwner(id);
 
         if (req.getName() != null && !req.getName().isBlank()) box.setName(req.getName());
@@ -110,15 +110,15 @@ public class GiftBoxService {
     }
 
     @Transactional
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         Product box = requireOwner(id);
         productRepo.delete(box);
         return true;
     }
 
     // ---- helpers ----
-    private Product requireOwner(Integer boxId) {
-        Integer userId = currentUserId();
+    private Product requireOwner(Long boxId) {
+        Long userId = currentUserId();
         Product box = productRepo.findById(boxId).orElseThrow(EntityNotFoundException::new);
         if (box.getCreatedBy() == null || !box.getCreatedBy().equals(userId)) {
             throw new ResponseStatusException(FORBIDDEN, "Not allowed to modify this gift box");

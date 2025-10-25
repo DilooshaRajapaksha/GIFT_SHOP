@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductListItem {
-    private Integer id;
+    private Long id;
     private String name;
     private BigDecimal price;
     private Integer stock;
-    private Integer categoryId;
+    private Long categoryId;
     private String imageUrl;
 }

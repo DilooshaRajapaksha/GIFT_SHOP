@@ -9,14 +9,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GiftBoxResponse {
-    private Integer id;
+    private Long id;
     private String name;
     private BigDecimal totalPrice;
     private List<GiftBoxItemInfo> items;
 
     @Data @NoArgsConstructor @AllArgsConstructor
     public static class GiftBoxItemInfo {
-        private Integer productId;
+        private Long productId;
         private String productName;
         private Integer quantity;
         private BigDecimal unitPrice;

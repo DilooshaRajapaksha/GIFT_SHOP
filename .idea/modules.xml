@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Backend-GIT.iml" filepath="$PROJECT_DIR$/.idea/Backend-GIT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GiftCraft-BackEnd/GiftCraft-BackEnd.iml" filepath="$PROJECT_DIR$/GiftCraft-BackEnd/GiftCraft-BackEnd.iml" />
     </modules>
   </component>
 </project>

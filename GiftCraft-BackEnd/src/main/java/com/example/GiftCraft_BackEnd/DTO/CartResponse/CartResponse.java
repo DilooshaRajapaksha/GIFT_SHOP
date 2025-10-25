@@ -13,7 +13,7 @@ import java.util.List;
 public class CartResponse {
 
     private Integer cartId;
-    private Integer userId;
+    private Long userId;
     private List<CartItemResponse> items;
     private Integer totalItems;
     private BigDecimal subtotal;
@@ -24,7 +24,7 @@ public class CartResponse {
     @AllArgsConstructor
      public static class CartItemResponse {
 
-         private Integer productId;
+         private Long productId;
          private String name;
          private String productType;
          private Integer quantity;

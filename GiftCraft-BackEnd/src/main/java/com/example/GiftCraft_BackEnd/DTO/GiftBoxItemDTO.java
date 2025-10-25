@@ -7,7 +7,7 @@ import lombok.*;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class GiftBoxItemDTO {
     @NotNull
-    private Integer productId;      // Integer
+    private Long productId;      // Integer
 
     @NotNull @Min(0)
     private Integer quantity;       // 0 means remove in update

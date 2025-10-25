@@ -10,8 +10,8 @@ import java.io.Serializable;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class GiftBoxItemId implements Serializable {
     @Column(name = "giftbox_id")
-    private Integer giftboxId;     // Integer
+    private Long giftboxId;     // Integer
 
     @Column(name = "product_id")
-    private Integer productId;     // Integer
+    private Long productId;     // Integer
 }

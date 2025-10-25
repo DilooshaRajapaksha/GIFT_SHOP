@@ -16,10 +16,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private Integer id;                 // Integer
+    private Long id;                 // Integer
 
     @Column(name = "category_id")
-    private Integer categoryId;
+    private Long categoryId;
 
     @Column(name = "name", nullable = false, length = 150)
     private String name;
@@ -37,7 +37,7 @@ public class Product {
     private String productType;         // 'single' | 'giftbox'
 
     @Column(name = "created_by")
-    private Integer createdBy;          // Integer (FK to USER.user_id)
+    private Long createdBy;          // Integer (FK to USER.user_id)
 
     @Column(name = "visible")
     private String visible;             // 'public' | 'private'

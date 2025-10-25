@@ -11,14 +11,14 @@ import java.util.List;
 
 public interface GiftBoxItemRepo extends JpaRepository<GiftBoxItem, GiftBoxItemId> {
 
-    List<GiftBoxItem> findByGiftbox_Id(Integer giftboxId);
+    List<GiftBoxItem> findByGiftbox_Id(Long giftboxId);
 
     @Query("""
     select coalesce(sum(li.item.price * li.quantity), 0)
     from GiftBoxItem li
     where li.giftbox.id = :giftboxId
   """)
-    BigDecimal sumTotal(@Param("giftboxId") Integer giftboxId);
+    BigDecimal sumTotal(@Param("giftboxId") Long giftboxId);
 
     @Modifying
     @Query(value = """
@@ -26,10 +26,14 @@ public interface GiftBoxItemRepo extends JpaRepository<GiftBoxItem, GiftBoxItemI
     values (?1, ?2, ?3)
     on duplicate key update quantity = values(quantity)
   """, nativeQuery = true)
-    void upsertLine(Integer giftboxId, Integer productId, Integer qty);
+    void upsertLine(Long giftboxId, Long productId, Integer qty);
 
     @Modifying
     @Query(value = "delete from GIFTBOX_PRODUCT where giftbox_id=?1 and product_id=?2", nativeQuery = true)
-    void deleteLine(Integer giftboxId, Integer productId);
+    void deleteLine(Long giftboxId, Long productId);
+
+    @Modifying
+    @Query("DELETE FROM GiftBoxItem gi WHERE gi.id.giftboxId = :giftboxId")
+    void deleteAllByGiftboxId(@Param("giftboxId") Long giftboxId);
 }
 

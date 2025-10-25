@@ -1,6 +1,8 @@
 package com.example.GiftCraft_BackEnd.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "GIFTBOX_PRODUCT")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class GiftBoxItem {
 
     @EmbeddedId
