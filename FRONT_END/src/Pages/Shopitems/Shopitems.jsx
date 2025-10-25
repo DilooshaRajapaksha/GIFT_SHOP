@@ -1,9 +1,8 @@
 import React from 'react'
-import './shopitems.css';
 
 function Shopitems() {
   return (
-    <div /*className="active"*/ >Shopitems</div>
+    <div /*className="active"*/>Shop Items</div>
   )
 }
 

@@ -11,7 +11,6 @@ import Shopitems from "./Pages/Shopitems/Shopitems";
 import Cart from "./Pages/Cart/Cart";
 import Profile from "./Pages/Profile/Profile";
 
-
 export default function App() {
   return (
     
@@ -38,7 +37,7 @@ export default function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<div>Not Found</div>} />
-              
+                          
                
               </Routes>
 

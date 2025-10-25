@@ -1,26 +1,9 @@
 import React from 'react'
 
-import './Giftbox.css';
-
-import Products from '../../Components/Products/Products';
-import Filters from '../../Components/FilterBy/Filter';
-
-function Home() {
+function Giftbox() {
   return (
-    
-    <main className="content">
-        <div className="layout">
-          <aside className="sidebar">
-            <Filters onChange={(s) => console.log("filters:", s)} />
-          </aside>
-
-          <section className="results">
-
-            <Products />
-          </section>
-        </div>
-      </main>
+    <div /*className="active"*/>Giftbox</div>
   )
 }
 
-export default Home
+export default Giftbox
