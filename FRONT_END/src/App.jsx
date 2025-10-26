@@ -1,35 +1,53 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Cart from './Pages/Cart/Cart';
-import Dilivery from './Pages/Dilivery/Dilivery';
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+
+import Home from "./Pages/Home/Home";
+import Giftbox from "./Pages/Giftbox/Giftbox";
+import Buildown from "./Pages/Buildown/Buildown";
+import Shopitems from "./Pages/Shopitems/Shopitems";
+import Cart from "./Pages/Cart/Cart";
+import Profile from "./Pages/Profile/Profile";
+
+export default function App() {
   return (
-   
-    <Router>
-       <Header/>
-      <div className="App">
-        
-        <nav>
-          <ul className="nav-links">
-            <Link to="/"></Link>
-            <Link to="/cart"></Link>
-            <Link to="/dilivery"></Link>
-          </ul>
-        </nav>
-
     
-        <Routes>
-          <Route path="/" element={<h2>Welcome</h2>} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/Dilivery" element={<Dilivery />} />
-        </Routes>
-      </div>
-      <Footer/>
-    </Router>
+    <div>
+      {/* Sticky header sits on top */}
+      <Header />
+
+      {/* Main content area */}
+      <main>
+        <div>
+          {/* <aside className="sidebar">
+            <Filters onChange={(s) => console.log("filters:", s)} />
+          </aside> */}
+
+          <section className="results">
+
+              <Routes>
+              
+              
+                <Route path="/" element={<Home/>} />
+                <Route path="/giftbox" element={<Giftbox/>} />
+                <Route path="/buildown" element={<Buildown />} />
+                <Route path="/shopitems" element={<Shopitems />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="*" element={<div>Not Found</div>} />
+                          
+               
+              </Routes>
+
+          </section>
+        </div>
+      </main>
+
+      {/* Footer spans full width */}
+      <Footer />
+    </div>
+
   );
 }
-
-export default App;
