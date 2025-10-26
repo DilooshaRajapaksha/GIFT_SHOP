@@ -1,0 +1,183 @@
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tab-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tab-link {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+.tab-link.active {
+  color: #FF6B35;
+  border-bottom: 2px solid #FF6B35;
+}
+
+.tab-separator {
+  color: #ccc;
+  margin: 0 5px;
+}
+
+.tab-content {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.checkout-btn {
+  background: #FF6B35;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.checkout-btn:hover {
+  background: #E55A2B;
+}
+
+.submit-btn {
+  background: #4CAF50; 
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #45a049;
+}
+
+.pay-btn {
+  background: #2196F3; 
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.pay-btn:hover {
+  background: #1976D2;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.total-section {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.total-section p {
+  margin: 5px 0;
+}
+
+.total-section h3 {
+  color: #FF6B35;
+  margin: 10px 0;
+}
+
+.bank-details {
+  background: #e8f5e8;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+  border-left: 4px solid #4CAF50;
+}
+
+.bank-details h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.file-upload {
+  margin: 10px 0;
+}
+
+.file-upload input[type="file"] {
+  width: 100%;
+  padding: 8px;
+}
+
+.transaction-ref {
+  background: #fff3cd;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #856404;
+}
+
+
+.cart-header {
+  border-bottom: 2px solid #FF6B35;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.add-more-btn {
+  background: #9E9E9E;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 100%;
+}
+
+
+@media (max-width: 600px) {
+  .tab-nav {
+    flex-wrap: wrap;
+  }
+  .tab-link {
+    padding: 5px 8px;
+  }
+}
