@@ -1,0 +1,88 @@
+.cart-page {
+  padding: 24px 16px;
+  background: #fafafa;
+}
+
+.loader { opacity: .7; }
+
+.cart-shell {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+
+.cart-header { padding: 18px 22px 10px; }
+
+.cart-steps {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+.step {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 8px 10px;
+  font-weight: 700;
+  color: #ff6b35;
+  border-bottom: 3px solid transparent;
+}
+.step.active { color: #111; border-bottom-color: #ff6b35; }
+
+.cart-title {
+  margin: 6px 2px 0;
+  font-size: 28px;
+  font-weight: 800;
+  border-bottom: 2px solid #ff6b35;
+  padding-bottom: 10px;
+}
+
+.cart-empty { padding: 24px; }
+.btn-secondary, .btn-primary, .btn-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 6px; border: 0; cursor: pointer;
+  font-weight: 700;
+}
+.btn-secondary {
+  height: 42px; padding: 0 18px; background: #6c757d; color: #fff;
+}
+.btn-secondary:hover { filter: brightness(.95); }
+
+.btn-primary {
+  height: 44px; padding: 0 22px; background: #ff6b35; color: #fff;
+}
+.btn-primary:hover { filter: brightness(.95); }
+
+.btn-link {
+  background: none; color: #d32f2f; padding: 6px 10px;
+}
+
+.cart-lines { list-style: none; margin: 0; padding: 0; }
+.cart-lines > li { padding: 14px 18px; border-bottom: 1px solid #eee; }
+
+.cart-footer {
+  padding: 14px 18px 22px;
+  border-top: 1px solid #eee;
+  display: grid;
+  gap: 12px;
+}
+.cart-totals {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+}
+.subtotal { font-size: 16px; }
+.subtotal strong { font-size: 18px; }
+
+.actions { display: flex; gap: 10px; align-items: center; }
+@media (max-width: 640px) {
+  .cart-totals { grid-template-columns: 1fr; justify-items: start; }
+  .actions { width: 100%; }
+  .btn-primary { width: 100%; }
+}

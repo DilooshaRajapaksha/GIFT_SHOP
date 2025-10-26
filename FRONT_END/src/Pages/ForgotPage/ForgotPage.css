@@ -1,0 +1,83 @@
+.forgot-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f4ee;
+  font-family: "Poppins", sans-serif;
+}
+
+.forgot-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 32px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  text-align: left;
+  border: 1px solid #e3a7a0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.forgot-box h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.forgot-box input[type="email"] {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.forgot-box input:focus {
+  border-color: #e3a7a0;
+  outline: none;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.button-row button {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  border: none;
+  background-color: #e3a7a0;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-row button:hover {
+  background-color: #d48c84;
+}
+
+.message {
+  margin-top: 20px;
+  color: #d32f2f;
+  font-weight: 500;
+  text-align: center;
+  font-size: 14px;
+}

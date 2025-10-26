@@ -1,0 +1,4 @@
+/* Summary card small tweaks; base styles live in CreateGiftbox.css */
+.giftbox-summary h3 { margin: 0; }
+.summary-line span:first-child { color: #374151; }
+.summary-total strong { font-size: 20px; }
