@@ -10,8 +10,11 @@ export default function Header() {
   const handleLogout = () => {
     localStorage.removeItem("jwt");
     localStorage.removeItem("role");
+    localStorage.removeItem("userId");
+    
     sessionStorage.removeItem("jwt");
     sessionStorage.removeItem("role");
+    sessionStorage.removeItem("userId");
     navigate("/login");
   };
 

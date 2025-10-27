@@ -43,7 +43,7 @@ function LoginPage() {
           if (role?.toUpperCase().replace("ROLE_", "") === "ADMIN") {
             navigate("/admin");
           } else {
-            navigate("/UserPage");
+            navigate("/");
           }
         } else {
           alert("Login failed: Please login again");

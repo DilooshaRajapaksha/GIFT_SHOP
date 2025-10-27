@@ -14,7 +14,7 @@ function ProfilePage() {
     const token = localStorage.getItem("jwt") || sessionStorage.getItem("jwt");
 
     if (!token) {
-      setMessage("No token found. Please log in.");
+      setMessage("Please login first.");
       return;
     }
 
@@ -28,14 +28,21 @@ function ProfilePage() {
         const errorMessage =
           err.response?.data?.message ||
           err.response?.data?.error ||
-          "Failed to load profile. Please log in again.";
+          "Failed to load profile. Please login again.";
         setMessage(errorMessage);
       });
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("userId");    
+    localStorage.removeItem("role");
+    localStorage.removeItem("seenSplash");
+
     sessionStorage.removeItem("jwt");
+    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("role");
+    sessionStorage.removeItem("seenSplash");
     navigate("/login");
   };
 

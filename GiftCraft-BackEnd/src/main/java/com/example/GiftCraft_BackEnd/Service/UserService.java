@@ -151,7 +151,7 @@ for (String roleName : requestedRoles) {
         }
 
         User user = optionalUser.get();
-        user.getUserRoles().size(); // force load
+        user.getUserRoles().size(); 
 
         if (updateRequest.getCurrentPassword() == null || !passwordEncoder.matches(updateRequest.getCurrentPassword(), user.getPassword())) {
             return ResponseEntity.badRequest().body("Current password is incorrect");

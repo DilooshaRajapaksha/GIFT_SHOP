@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "`USER`")
-public class User implements UserDetails {  //UserDetails from spring securitty
+public class User implements UserDetails {  
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
