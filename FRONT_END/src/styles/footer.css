@@ -1,0 +1,78 @@
+/* Luxe-like footer, responsive, no absolute positioning */
+.site-footer{
+  background: #fff6f3;            /* soft off-white like your header tweak */
+  color: #2b2521;
+  margin-top: 48px;
+  padding: 40px 0 24px;
+  box-shadow: 0 -1px 0 rgba(0,0,0,.05);
+}
+
+.footer-wrap{
+  width: min(1200px, 100% - 80px);
+  margin-inline: auto;
+}
+
+/* 4 columns on desktop, 2 on tablet, 1 on mobile */
+.f-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 980px){
+  .f-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .f-grid{ grid-template-columns: 1fr; }
+}
+
+.f-col h4{
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 22px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif; /* optional luxe heading */
+}
+
+.f-col p{
+  margin: 0;
+  line-height: 1.7;
+  color: #6f6a66;
+  max-width: 42ch;
+}
+
+.f-col ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.f-col a{
+  text-decoration: none;
+  color: #2b2521;
+  opacity: .9;
+}
+.f-col a:hover{ text-decoration: underline; }
+
+/* social list */
+.f-social a{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.f-social svg{
+  width: 18px; height: 18px; fill: #2b2521; opacity: .85;
+}
+
+.f-divider{
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.08);
+  margin: 28px 0 16px;
+}
+
+.f-copy{
+  text-align: center;
+  color: #6f6a66;
+  font-size: 14px;
+}
