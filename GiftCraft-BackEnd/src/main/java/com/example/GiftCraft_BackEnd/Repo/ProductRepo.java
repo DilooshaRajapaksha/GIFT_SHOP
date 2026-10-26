@@ -27,9 +27,8 @@ public interface  ProductRepo extends JpaRepository<Product, Long> {
       and (:cat is null or p.categoryId = :cat)
      order by p.createdAt desc 
 """)
-
     Page<Product> searchSingles(@Param("q") String query,
-                                @Param("cat") Integer categoryId,
+                                @Param("cat") Long categoryId,   // was Integer, but categoryId is Long in Product
                                 Pageable pageable);
 
     @Query("""
@@ -39,6 +38,7 @@ public interface  ProductRepo extends JpaRepository<Product, Long> {
            and (:min is null or p.price >= :min)
            and (:max is null or p.price <= :max)
            and (:categoryId is null or p.categoryId = :categoryId)
+           and (:q is null or lower(p.name) like lower(concat('%', :q, '%')))
         order by p.createdAt desc
     """)
     List<Product> search(
@@ -46,10 +46,14 @@ public interface  ProductRepo extends JpaRepository<Product, Long> {
             @Param("visible") String visible,
             @Param("min") BigDecimal min,
             @Param("max") BigDecimal max,
-            @Param("categoryId") Long categoryId
+            @Param("categoryId") Long categoryId,
+            @Param("q") String search
     );
 
     Optional<Product> findByIdAndProductType(Long id, String type);
+
+    // "Best Sellers" row on the home page
+    List<Product> findByBestSellerTrueAndVisibleOrderByIdDesc(String visible);
     List<Product> findByProductType(String type);
 
 }

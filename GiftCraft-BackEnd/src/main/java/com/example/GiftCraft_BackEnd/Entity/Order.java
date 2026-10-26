@@ -18,6 +18,16 @@ public class Order {
     @Column(name = "user_id")
     private Long userId;
 
+    // customer details from the WhatsApp order form (no login, so we ask for them)
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "customer_phone")
+    private String customerPhone;
+
+    @Column(name = "note", length = 500)
+    private String note;
+
     @Column(name = "delivery_address")
     private String deliveryAddress;
 
@@ -29,10 +39,6 @@ public class Order {
 
     @Column(name = "total_price")
     private BigDecimal totalPrice;
-
-    @OneToOne(mappedBy = "order" ,  cascade = CascadeType.ALL,fetch = FetchType.LAZY, orphanRemoval = true)
-    @JsonManagedReference
-    private Payment payment;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)

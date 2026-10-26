@@ -1,0 +1,97 @@
+.wrap {
+  max-width: 1240px;
+  margin: 18px auto 0;
+  padding: 0 16px;
+  position: relative;
+}
+
+/* embla viewport */
+.hero {
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: var(--lift);
+}
+.track { display: flex; }
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-height: clamp(420px, 62vh, 580px);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(18px, 4vw, 48px);
+  background-color: var(--mist);
+  background-size: cover;
+  background-position: center;
+}
+
+/* the frosted card that holds the words */
+.caption {
+  position: relative;
+  overflow: hidden;
+  max-width: 520px;
+  padding: 28px 30px 30px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 50px -30px rgba(40, 70, 110, 0.5);
+}
+.caption h1 {
+  margin: 0 0 10px;
+  font-size: clamp(32px, 4.6vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+.caption p {
+  margin: 0 0 22px;
+  font-size: 17px;
+  color: var(--text-soft);
+  max-width: 40ch;
+}
+.btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* the one moving thing on the page: a pearl sheen that crosses the first card once */
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% -60%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.95) 45%, rgba(188, 220, 245, 0.7) 55%, transparent);
+  transform: skewX(-18deg);
+  animation: sheen 1.6s ease-out 0.4s 1 both;
+  pointer-events: none;
+}
+@keyframes sheen {
+  from { left: -60%; }
+  to { left: 130%; }
+}
+
+.dots {
+  position: absolute;
+  right: calc(16px + 28px);
+  bottom: 22px;
+  display: flex;
+  gap: 8px;
+}
+.dot, .dotOn {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.4);
+}
+.dotOn { width: 28px; background: #fff; }
+
+@media (max-width: 600px) {
+  .wrap { padding: 0 8px; margin-top: 10px; }
+  .hero { border-radius: var(--radius-lg); }
+  .slide { min-height: 480px; padding: 12px; }
+  .caption { padding: 20px; }
+  .caption p { font-size: 15px; }
+  .btns :global(.btn) { flex: 1 1 auto; }
+  .dots { right: 24px; bottom: auto; top: 22px; }
+}

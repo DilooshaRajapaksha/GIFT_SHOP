@@ -1,78 +1,52 @@
-/* Global safety nets */
-* { box-sizing: border-box; }
-img { max-width: 100%; height: auto; display: block; }
-html, body { overflow-x: hidden; }  /* prevent accidental horizontal scroll */
-
-/* Page background (optional) */
-.builder { background: #fafafa; }
-
-/* Two columns: left (= AddItems) and right (= Preview) */
-.builder-layout{
-  /* Full-bleed, but keep pleasant side padding that adapts with screen width */
-  width: 100%;
-  margin: 0;                                   /* not centered anymore */
-  padding-inline: clamp(16px, 4vw, 48px);      /* left/right gutters grow with screen */
-
+.builder-layout {
   display: grid;
-  /* Left column can flex between 320–440px, right gets the rest */
-  grid-template-columns: minmax(320px, 440px) 1fr;
-  gap: clamp(16px, 2.5vw, 32px);
+  grid-template-columns: minmax(300px, 420px) 1fr;
+  gap: 24px;
+  align-items: start;
 }
 
-/* Keep the left panel visible while scrolling (desktop only) */
-.builder-left{
+/* the item list stays in view while the box grows (desktop only) */
+.builder-left {
   position: sticky;
-  top: 16px;
-  align-self: start;
+  top: 110px;
 }
-
-/* Let AddItems & Preview participate in the grid (no absolute sizing) */
-.builder-left .add-box,
-.builder-right .preview-box{
-  position: static !important;
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100%;
-}
-
-/* Give the left list a nice max height with internal scroll on tall screens */
-.builder-left .list{
-  max-height: calc(100vh - 240px);
+.builder-left .list {
+  max-height: calc(100vh - 330px);
+  min-height: 240px;
   overflow: auto;
-}
-
-/* When the viewport is narrower, reduce the left column before stacking */
-@media (max-width: 1100px){
-  .builder-layout{
-    grid-template-columns: minmax(280px, 360px) 1fr;
-  }
-}
-
-/* Stack on tablets/phones */
-@media (max-width: 900px){
-  .builder-layout{
-    grid-template-columns: 1fr;
-  }
-  .builder-left{ position: static; }
+  padding-right: 4px;
 }
 
 .builder-namebar {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px;
+  padding: 12px 16px;
+  background: var(--glass);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-md);
 }
-
-.builder-namebar__label {
-  font-weight: 600;
-  min-width: 130px;
-}
-
+.builder-namebar__label { font-weight: 600; white-space: nowrap; }
 .builder-namebar__input {
   flex: 1;
-  padding: 8px 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
+  min-width: 0;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
   background: #fff;
+}
+.builder-namebar__input:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px var(--focus); }
+
+@media (max-width: 900px) {
+  .builder-layout { grid-template-columns: minmax(0, 1fr); }
+  .builder-left { position: static; }
+  .builder-left .list { max-height: 420px; }
+}
+@media (max-width: 520px) {
+  .builder-namebar { flex-direction: column; align-items: stretch; gap: 8px; }
+  .builder-namebar__input { flex: none; }
 }

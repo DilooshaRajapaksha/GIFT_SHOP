@@ -1,0 +1,30 @@
+/* a quiet strip of three promises - not cards, just icon + text */
+.features { max-width: 1240px; margin: 56px auto 0; padding: 0 20px; }
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.item { display: flex; gap: 14px; align-items: flex-start; }
+.icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--pink);
+  background: #fff;
+  box-shadow: 0 4px 12px -6px rgba(40, 70, 110, 0.4);
+}
+.item h4 { margin: 2px 0 4px; font-size: 19px; }
+.item p { margin: 0; color: var(--text-soft); font-size: 15px; }
+
+@media (max-width: 800px) {
+  .list { grid-template-columns: 1fr; gap: 20px; padding: 22px 4px; }
+}

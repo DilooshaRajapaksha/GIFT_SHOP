@@ -1,55 +1,69 @@
-// src/Components/GiftBoxPreview/GiftBoxPreview.jsx
+// src/Components/Giftboxpreview/Giftboxpreview.jsx
+// Right side of "Build Your Own" - shows what the user picked.
+import { imageSrc } from "../../Service/api";
 import "./Giftboxpreview.css";
 
-export default function GiftboxPpreview({
-  items = [],                 // [{id, title, price, img}] if you want to show added items later
-  total = 0,                  // number
-  onCheckout = () => {},      // handler for checkout
+export default function GiftboxPreview({
+  items = [],              // [{ id, name, price, imageUrl, qty }]
+  total = 0,               // number
+  onQtyChange = () => {},  // (id, newQty) => void
+  onRemove = () => {},     // (id) => void
+  onCheckout = () => {},   // create the box and go to cart
+  creating = false,        // true while the API call is running
 }) {
   const isEmpty = items.length === 0;
 
   return (
     <section className="preview-box">
-      <h1 className="preview-title">Your Gift Box Preview</h1>
+      <h2 className="preview-title">Your box</h2>
 
-      {/* Canvas area */}
       <div className="preview-canvas">
         {isEmpty ? (
           <div className="empty">
-            {/* swap with your own image path */}
-            <img
-              src="/img/empty-box.jpg"
-              alt="Empty gift box"
-              className="empty-img"
-            />
-            <p className="empty-msg">
-              Your gift box is empty. Add some delightful items!
-            </p>
+            <div className="empty-box" aria-hidden="true" />
+            <p className="empty-msg">Your box is empty. Tap + next to an item to put it in.</p>
           </div>
         ) : (
-          <div className="items-grid">
+          <ul className="picked-list">
             {items.map((it) => (
-              <div key={it.id} className="thumb">
-                <img src={it.img} alt={it.title} />
-              </div>
+              <li key={it.id} className="picked-row">
+                <div className="thumb">
+                  {it.imageUrl ? <img src={imageSrc(it.imageUrl)} alt={it.name} /> : null}
+                </div>
+
+                <div className="picked-info">
+                  <div className="picked-name">{it.name}</div>
+                  <div className="picked-price">Rs {Number(it.price).toFixed(2)} each</div>
+                </div>
+
+                <div className="picked-qty">
+                  {/* going to 0 removes the item (handled in Buildown) */}
+                  <button onClick={() => onQtyChange(it.id, it.qty - 1)} disabled={creating}>−</button>
+                  <span>{it.qty}</span>
+                  <button onClick={() => onQtyChange(it.id, it.qty + 1)} disabled={creating}>+</button>
+                </div>
+
+                <button
+                  className="picked-remove"
+                  onClick={() => onRemove(it.id)}
+                  disabled={creating}
+                  title="Remove"
+                >
+                  ✕
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
 
-      {/* Total */}
       <div className="total-row">
-        <span>Total Cost:</span>
-        <strong>£{total.toFixed(2)}</strong>
+        <span>Box total</span>
+        <strong>Rs {Number(total).toFixed(2)}</strong>
       </div>
 
-      {/* Checkout */}
-      <button
-        className="checkout-btn"
-        disabled={isEmpty}
-        onClick={onCheckout}
-      >
-        Proceed to Checkout
+      <button className="checkout-btn" disabled={isEmpty || creating} onClick={onCheckout}>
+        {creating ? "Saving your box..." : "Add box to cart"}
       </button>
     </section>
   );

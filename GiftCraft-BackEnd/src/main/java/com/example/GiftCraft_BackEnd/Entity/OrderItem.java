@@ -27,7 +27,13 @@ public class OrderItem {
     @JsonBackReference
     private Order order;
 
+    // not a column, filled from PRODUCT.name when we load orders
+    // (was "Name" with a capital N, Java fields should start lowercase)
     @Transient
-    private String Name;
+    private String name;
+
+    // not a column: 'single' or 'giftbox', so the admin page knows when to show box contents
+    @Transient
+    private String productType;
 
 }

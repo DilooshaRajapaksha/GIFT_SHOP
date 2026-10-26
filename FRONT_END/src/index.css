@@ -1,0 +1,131 @@
+/*
+ * Pearl Gifts - light "pearl blue" look:
+ * pearl white with soft sky blue, a hint of lavender and blush,
+ * clear frosted glass on top, calm blue buttons and navy text.
+ */
+:root {
+  /* pearl blue: soft sky blue, pearl white, a touch of lavender and blush */
+  --pearl: #f6f9fd;
+  --sky: #bcdcf5;
+  --mist: #e4eef9;
+  --lavender: #dcd6f3;
+  --blush: #f6dce6;
+
+  /* main accent (buttons) - calm blue */
+  --pink: #4a86bd;          /* name kept from before so older styles still work */
+  --pink-dark: #356a9c;
+  --gold: #2c5f8f;          /* prices and highlights */
+  --champagne: #d9c29a;     /* thin ring around the logo */
+  --teal: #6ab7c9;
+
+  /* text */
+  --text: #1f2d44;
+  --text-soft: #5a6a80;
+  --ink: #1f2d44;
+
+  /* glass */
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-strong: rgba(255, 255, 255, 0.78);
+  --glass-edge: rgba(255, 255, 255, 0.9);
+  --glass-blur: blur(18px) saturate(150%);
+  --lift: 0 18px 40px -24px rgba(40, 70, 110, 0.35);
+  --line: rgba(31, 45, 68, 0.1);
+  --focus: rgba(74, 134, 189, 0.25);
+  --danger: #b4233c;
+
+  --whatsapp: #22b35e;
+
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+  background-color: var(--pearl);
+  /* pearl sheen: soft blue light with a little lavender and blush */
+  background-image:
+    radial-gradient(45vw 45vh at 8% 4%, rgba(188, 220, 245, 0.75), transparent 70%),
+    radial-gradient(38vw 40vh at 95% 18%, rgba(220, 214, 243, 0.6), transparent 70%),
+    radial-gradient(45vw 45vh at 70% 100%, rgba(246, 220, 230, 0.5), transparent 70%),
+    linear-gradient(160deg, #f6f9fd 0%, #e8f1fa 50%, #eef0fa 100%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+button { cursor: pointer; font-family: inherit; }
+input, textarea, select { font-family: inherit; font-size: 16px; color: var(--ink); }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* clear frosted glass */
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--lift), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+}
+
+/* white input boxes are easiest to read and type in */
+.field {
+  width: 100%;
+  padding: 11px 13px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+}
+.field:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px var(--focus); }
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.btn-ribbon { background: var(--pink); color: #fff; box-shadow: 0 8px 20px -12px rgba(53, 106, 156, 0.8); }
+.btn-ribbon:hover { background: var(--pink-dark); }
+.btn-ghost { background: rgba(255, 255, 255, 0.8); color: var(--text); border-color: var(--line); }
+.btn-ghost:hover { background: #fff; border-color: var(--pink); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

@@ -1,0 +1,22 @@
+/* small shared styles used by more than one page */
+.not-found { text-align: center; padding: 80px 20px; }
+.not-found a { color: var(--pink-dark); }
+
+.msg { padding: 10px 14px; border-radius: var(--radius-sm); margin: 10px 0; font-size: 14px; }
+.msg-error { background: #fdecef; color: #9b1c1c; border: 1px solid #f5c6cf; }
+.msg-success { background: #e6f6ee; color: #17603a; border: 1px solid #bde3cd; }
+
+.page-wrap { max-width: 1200px; margin: 0 auto; padding: 36px 20px 64px; }
+.page-title { margin: 0 0 6px; font-size: clamp(30px, 4vw, 44px); }
+.page-sub { margin: 0 0 26px; color: var(--text-soft); max-width: 62ch; }
+.page-sub a { color: var(--pink-dark); }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 22px;
+}
+@media (max-width: 520px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .page-wrap { padding: 24px 14px 48px; }
+}

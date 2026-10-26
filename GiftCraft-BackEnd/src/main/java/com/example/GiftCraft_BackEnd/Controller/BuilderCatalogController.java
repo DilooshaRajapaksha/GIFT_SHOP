@@ -8,7 +8,6 @@ import org.springframework.data.domain.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/builder")
 public class BuilderCatalogController {
@@ -17,13 +16,13 @@ public class BuilderCatalogController {
 
     @GetMapping("/catalog")
     public Page<ProductListItem> searchSingles(@RequestParam(required=false) String query,
-                                               @RequestParam(required=false) Integer category,
+                                               @RequestParam(required=false) Long category,   // Long, same type as Product.categoryId
                                                @RequestParam(defaultValue="0") int page,
                                                @RequestParam(defaultValue="12") int size) {
         Page<Product> pg = productRepo.searchSingles(query, category, PageRequest.of(page, size));
-      return pg.map(p -> new ProductListItem(
-              p.getId(), p.getName(), p.getPrice(), p.getStock(), p.getCategoryId(), p.getImageUrl()
-      ));
+        return pg.map(p -> new ProductListItem(
+                p.getId(), p.getName(), p.getPrice(), p.getStock(), p.getCategoryId(), p.getImageUrl()
+        ));
     }
 
 }

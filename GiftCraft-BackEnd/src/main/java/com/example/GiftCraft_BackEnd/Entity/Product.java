@@ -45,6 +45,10 @@ public class Product {
     @Column(name = "image_url")
     private String imageUrl;
 
+    // true = shown in the "Best Sellers" row on the home page (admin can tick it)
+    @Column(name = "best_seller")
+    private Boolean bestSeller = false;
+
     @Column(name = "created_at", insertable = false, updatable = false)
     private Timestamp createdAt;
 }

@@ -1,5 +1,6 @@
 package com.example.GiftCraft_BackEnd.Controller;
 
+import com.example.GiftCraft_BackEnd.Config.CurrentUser;
 import com.example.GiftCraft_BackEnd.DTO.GiftboxCreateDTO;
 import com.example.GiftCraft_BackEnd.DTO.GiftboxDetailDTO;
 import com.example.GiftCraft_BackEnd.Services.GiftBoxPublicService;
@@ -7,10 +8,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+// Admin-only way to create READY-MADE gift boxes (with description + image).
+// Normal users build their boxes through GiftBoxController (/api/v1/giftboxes/save).
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/admin/giftboxes")
-@CrossOrigin(origins = {"http://localhost:3000","http://localhost:5173"})
 public class GiftboxAdminController {
 
     private final GiftBoxPublicService giftboxpublicService;
@@ -18,7 +20,7 @@ public class GiftboxAdminController {
     // Create draft giftbox (visible='private')
     @PostMapping
     public GiftboxDetailDTO create(@Valid @RequestBody GiftboxCreateDTO dto) {
-        Long adminId = 1L; // TODO: replace after you wire authentication
+        Long adminId = CurrentUser.id(); // TODO: check the user is really an admin after login is added
         return giftboxpublicService.create(dto, adminId);
     }
 

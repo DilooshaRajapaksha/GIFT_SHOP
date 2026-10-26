@@ -1,0 +1,7 @@
+.heading {
+  max-width: 1240px;
+  margin: 56px auto 22px;
+  padding: 0 20px;
+  font-size: clamp(28px, 3.4vw, 38px);
+  letter-spacing: -0.015em;
+}

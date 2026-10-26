@@ -1,0 +1,26 @@
+.gb-heading { margin: 8px 0 16px; font-size: 24px; }
+
+/* cards stretch to fill the row, so 3 boxes don't leave an empty gap on the right */
+.gb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.gb-own {
+  margin-top: 36px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.gb-own h2 { margin: 0 0 4px; font-size: 24px; }
+.gb-own p { margin: 0; color: var(--text-soft); }
+
+@media (max-width: 520px) {
+  .gb-grid { grid-template-columns: 1fr; gap: 16px; }
+  .gb-own { padding: 20px; }
+  .gb-own .btn { width: 100%; }
+}

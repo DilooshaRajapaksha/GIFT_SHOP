@@ -1,30 +1,30 @@
 package com.example.GiftCraft_BackEnd.Controller;
 
-import com.example.GiftCraft_BackEnd.DTO.*;
+import com.example.GiftCraft_BackEnd.DTO.GiftBoxCreateRequest;
+import com.example.GiftCraft_BackEnd.DTO.GiftBoxResponse;
 import com.example.GiftCraft_BackEnd.Services.GiftBoxService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+/*
+ * Public gift box endpoints for "Build Your Own".
+ * The old /list, /update and /delete endpoints were removed: with no login every
+ * visitor is the same user, so anyone could have edited or deleted any box.
+ * Editing / deleting boxes is now only in the admin panel (AdminProductController).
+ */
 @RestController
-@CrossOrigin
-@RequestMapping("api/v1/giftboxes")
+@RequestMapping("/api/v1/giftboxes")
 public class GiftBoxController {
 
-    @Autowired
-    private GiftBoxService service;
+    private final GiftBoxService service;
+
+    public GiftBoxController(GiftBoxService service) {
+        this.service = service;
+    }
 
     @PostMapping("/save")
     public GiftBoxResponse create(@Valid @RequestBody GiftBoxCreateRequest body) {
         return service.create(body);
-    }
-
-    @GetMapping("/list")
-    public List<GiftBoxResponse> list(@RequestParam(defaultValue = "0") int page,
-                                      @RequestParam(defaultValue = "20") int size) {
-        return service.list(page, size);
     }
 
     @GetMapping("/{id}")
@@ -32,20 +32,8 @@ public class GiftBoxController {
         return service.get(id);
     }
 
-    @PutMapping("/update/{id}")
-    public GiftBoxResponse update(@PathVariable Long id, @Valid @RequestBody GiftBoxUpdateRequest body) {
-        return service.update(id, body);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id) {
-        return service.delete(id);
-    }
-
     @PostMapping("/quote")
-    public GiftBoxResponse quote(@RequestBody GiftBoxCreateRequest draft) {
+    public GiftBoxResponse quote(@Valid @RequestBody GiftBoxCreateRequest draft) {
         return service.quote(draft);
     }
-
 }
-

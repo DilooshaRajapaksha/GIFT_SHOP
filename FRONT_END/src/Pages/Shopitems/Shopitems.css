@@ -1,0 +1,13 @@
+.shop-layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 760px) {
+  .shop-layout { grid-template-columns: 1fr; gap: 16px; }
+  .shop-layout .filters { position: static; padding: 14px 16px; }
+  /* price options in a row instead of a list on phones */
+  .shop-layout .f-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .shop-layout .f-row { background: rgba(255, 255, 255, 0.75); padding: 6px 12px; border-radius: 999px; }
+}

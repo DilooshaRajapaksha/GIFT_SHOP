@@ -1,0 +1,53 @@
+.pcard {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 14px;
+  background: var(--glass);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--lift);
+}
+
+.pcard-media {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--mist);
+}
+.pcard-media img { width: 100%; height: 100%; object-fit: cover; }
+.pcard-noimg { height: 100%; display: grid; place-items: center; color: var(--text-soft); font-size: 13px; }
+
+.pcard-title { font-size: 16px; font-weight: 600; margin: 12px 6px 2px; line-height: 1.3; }
+.pcard-desc { margin: 0 6px 8px; font-size: 14px; color: var(--text-soft); line-height: 1.45; }
+.pcard-price { margin: 0 6px 12px; font-weight: 700; color: var(--gold); }
+
+.pcard-btn {
+  margin: auto 6px 0;
+  min-height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+.pcard-btn:hover { background: var(--pink-dark); }
+.pcard-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* "classic" card (Gift boxes page): wide picture on top, the way the page looked before */
+.pcard.classic { padding: 0; overflow: hidden; }
+.pcard.classic .pcard-media { aspect-ratio: auto; height: 200px; border-radius: 0; }
+.pcard.classic .pcard-title { margin: 16px 16px 4px; font-size: 18px; font-family: var(--font-display); font-variation-settings: "SOFT" 100; }
+.pcard.classic .pcard-desc { margin: 0 16px 10px; }
+.pcard.classic .pcard-price { margin: 0 16px 14px; font-size: 17px; }
+.pcard.classic .pcard-btn { margin: auto 16px 16px; }
+
+@media (max-width: 520px) {
+  .pcard { padding: 8px 8px 12px; }
+  .pcard-title { font-size: 15px; margin: 10px 4px 2px; }
+  .pcard-price { margin: 0 4px 10px; }
+  .pcard-btn { margin: auto 4px 0; font-size: 14px; }
+  .pcard.classic .pcard-media { height: 150px; }
+}
